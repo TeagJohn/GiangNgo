@@ -1,6 +1,9 @@
 package controller;
 
+import View.ListSubjectView;
 import View.SubjectView;
+import View.TableView;
+import View.TimeTableView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +27,8 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setLeftPane(SubjectView.getController().getAnchorPane());
+        setLeftPane(ListSubjectView.getController().getAnchorPane());
+        setRightPane(TableView.getController().getAnchorPane());
     }
 
     public static HomeController getInstance() {

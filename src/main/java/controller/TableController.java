@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -15,16 +16,26 @@ public class TableController implements Initializable {
 
     private static TableController controller;
     @FXML
+    private AnchorPane anchorPane;
+    @FXML
     private GridPane gridPane;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Text t = new Text("Hello");
-        gridPane.add(t, 1, 1, 1, 2);
-        GridPane.setHalignment(t, Pos.CENTER.getHpos());
+//        Text t = new Text("Hello");
+//        gridPane.add(t, 1, 1, 1, 2);
+//        GridPane.setHalignment(t, Pos.CENTER.getHpos());
+    }
+
+    public AnchorPane getAnchorPane() {
+        return anchorPane;
+    }
+
+    public GridPane getGridPane() {
+        return gridPane;
     }
 
     public static TableController getInstance() {
-        FXMLLoader loader = new FXMLLoader(Object.class.getResource("/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(Object.class.getResource("/table.fxml"));
         try {
             loader.load();
             TableController controller = loader.getController();

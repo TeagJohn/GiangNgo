@@ -10,9 +10,9 @@ public class AppStart extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        primaryStage.setTitle("Time controller.Table Setting Up");
+        primaryStage.setTitle("Time Table Setting Up");
         primaryStage.setScene(new Scene(HomeView.getController().getAnchorPane()));
-        primaryStage.setMaximized(false);
+        primaryStage.setMaximized(true);
         primaryStage.setResizable(true);
         primaryStage.show();
     }

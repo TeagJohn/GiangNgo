@@ -1,5 +1,7 @@
 package model;
 
+import View.SubjectView;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,6 +10,24 @@ public class Subject {
     private String id;
     private String name;
     private int numberOfPer;
+
+    private SubjectView view;
+
+    public SubjectView getView() {
+        return view;
+    }
+
+    public void setView(SubjectView view) {
+        this.view = view;
+    }
+
+    public int getNumberOfPer() {
+        return numberOfPer;
+    }
+
+    public void setNumberOfPer(int numberOfPer) {
+        this.numberOfPer = numberOfPer;
+    }
 
     public Subject(String id, String name, int numberOfPer, Teacher teacher, List<Time> timeList) {
         this.id = id;

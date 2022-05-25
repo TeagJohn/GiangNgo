@@ -54,12 +54,22 @@ public class FormAddController implements Initializable {
 
     @FXML
     public void add() {
+        String sbname = tfSBname.getText();
+        String sbid = tfSBid.getText();
+        String period = tfPeriod.getText();
+        String gvid = tfGVid.getText();
+        String gvname = tfGVname.getText();
+
+        showAlert("Add Subject", "Add subject successfully!");
         clear();
+    }
+
+    public void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Add Subject");
+        alert.setTitle(title);
         // Header Text: null
         alert.setHeaderText(null);
-        alert.setContentText("Add subject successfully!");
+        alert.setContentText(message);
         alert.showAndWait();
     }
 

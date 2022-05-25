@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import model.Subject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +15,10 @@ public class SubjectController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private Text sbname;
+    @FXML
+    private Text sbperiod;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,6 +40,11 @@ public class SubjectController implements Initializable {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void setSubject(Subject subject) {
+        sbname.setText(subject.getName());
+        sbperiod.setText(String.valueOf(subject.getNumberOfPer()));
     }
 
 }

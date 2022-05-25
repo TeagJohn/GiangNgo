@@ -41,6 +41,7 @@ public class LeftPaneController implements Initializable {
     }
 
     public static LeftPaneController getInstance() {
+        if (controller != null) return controller;
         FXMLLoader loader = new FXMLLoader(Object.class.getResource("/left_pane.fxml"));
         try {
             loader.load();

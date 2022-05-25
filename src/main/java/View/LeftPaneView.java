@@ -9,4 +9,6 @@ public class LeftPaneView {
         controller = LeftPaneController.getInstance();
         return controller;
     }
+
+
 }

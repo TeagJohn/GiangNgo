@@ -5,7 +5,7 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubjectController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Subject name" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="11.0" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="number periods" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="11.0" />
+      <Text fx:id="sbname" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject name" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="11.0" />
+      <Text fx:id="sbperiod" strokeType="OUTSIDE" strokeWidth="0.0" text="number periods" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="11.0" />
    </children>
 </AnchorPane>

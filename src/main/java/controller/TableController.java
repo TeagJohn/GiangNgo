@@ -6,10 +6,16 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import model.Subject;
+import model.Thu;
+import model.Time;
+import utils.Utils;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class TableController implements Initializable {
@@ -35,10 +41,11 @@ public class TableController implements Initializable {
     }
 
     public static TableController getInstance() {
+        if (controller != null) return controller;
         FXMLLoader loader = new FXMLLoader(Object.class.getResource("/table.fxml"));
         try {
             loader.load();
-            TableController controller = loader.getController();
+            controller = loader.getController();
 
             return controller;
         } catch (Exception e) {
@@ -46,4 +53,30 @@ public class TableController implements Initializable {
         }
         return null;
     }
+
+    public void add(Subject subject) {
+        List<Time> timeList = subject.getTimeList();
+        for (Time time : timeList) {
+            int start = time.getStartPeriod();
+            int end = time.getEndPeriod();
+            Thu thu = time.getThu();
+            gridPane.getColumnConstraints().get(1);
+            Node node = Utils.getNodeFromGridPane(gridPane, getCol(thu), start);
+        }
+    }
+
+    public int getCol(Thu thu) {
+        switch (thu) {
+            case Mon: return 1;
+            case Tue: return 2;
+            case Wed: return 3;
+            case Thu: return 4;
+            case Fri: return 5;
+            case Sat: return 6;
+            case Sun: return 7;
+
+            default: return 0;
+        }
+    }
+
 }

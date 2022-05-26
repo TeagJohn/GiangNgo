@@ -2,11 +2,13 @@ package controller;
 
 import View.LeftPaneView;
 import View.SubjectView;
+import View.TableView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import model.Subject;
@@ -40,6 +42,8 @@ public class FormAddController implements Initializable {
     private TextField tfGVname;
     @FXML
     private TextField tfTime;
+    @FXML
+    private ChoiceBox cbThu;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         clear();
@@ -68,11 +72,16 @@ public class FormAddController implements Initializable {
         String period = tfPeriod.getText();
         String gvid = tfGVid.getText();
         String gvname = tfGVname.getText();
+        String timeStart = tfTime.getText();
+        String thu = cbThu.getValue().toString();
 
         Teacher teacher1 = new Teacher(gvid, gvname);
         Subject subject = new Subject(sbid, sbname, Integer.valueOf(period), teacher1, Arrays.asList(new Time(new Random().nextInt(), 3, Thu.Mon)));
         System.out.println(subject);
-        LeftPaneView.getController().addSubject(new SubjectView(subject));
+
+        LeftPaneView.getController().addSubject(subject);
+        TableView.getController().add(subject);
+
         Utils.showAlert("Add Subject", "Add subject successfully!");
         clear();
     }

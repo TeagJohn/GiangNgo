@@ -66,7 +66,8 @@ public class LeftPaneController implements Initializable {
         formAddView.show(true);
     }
 
-    public void addSubject(SubjectView subjectView) {
+    public void addSubject(Subject subject) {
+        SubjectView subjectView = new SubjectView(subject);
         listView.getItems().add(subjectView.view());
 //        listView.setItems(listView.getItems());
         listView.refresh();

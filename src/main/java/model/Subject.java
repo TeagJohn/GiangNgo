@@ -11,7 +11,10 @@ public class Subject {
     private String name;
     private int numberOfPer;
 
+    private Teacher teacher;
+    private List<Time> timeList;
     private SubjectView view;
+
 
     public SubjectView getView() {
         return view;
@@ -69,8 +72,14 @@ public class Subject {
         this.timeList = timeList;
     }
 
-    private Teacher teacher;
-    private List<Time> timeList;
+    public boolean isConflict(Subject s) {
+        for (Time t1 : timeList) {
+            for (Time t2 : s.getTimeList()) {
+                if (t1.isConflict(t2)) return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String toString() {

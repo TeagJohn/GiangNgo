@@ -27,4 +27,8 @@ public class SubjectView extends AnchorPane {
         this.subject = subject;
         controller.setSubject(subject);
     }
+
+    public AnchorPane view() {
+        return controller.getAnchorPane();
+    }
 }

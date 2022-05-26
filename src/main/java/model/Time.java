@@ -43,4 +43,14 @@ public class Time {
     public void setThu(Thu thu) {
         this.thu = thu;
     }
+
+    public boolean isConflict(Time t) {
+        if (!this.thu.equals(t.getThu())) {
+            return false;
+        }
+        if ((startPeriod <= t.getStartPeriod() && t.getStartPeriod() <= endPeriod) || startPeriod <= t.getEndPeriod() && t.getEndPeriod() <= endPeriod) {
+            return true;
+        }
+        return false;
+    }
 }

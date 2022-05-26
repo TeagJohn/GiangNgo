@@ -8,8 +8,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import model.Subject;
+import model.Teacher;
+import model.Thu;
+import model.Time;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class LeftPaneController implements Initializable {
@@ -45,7 +50,7 @@ public class LeftPaneController implements Initializable {
         FXMLLoader loader = new FXMLLoader(Object.class.getResource("/left_pane.fxml"));
         try {
             loader.load();
-            LeftPaneController controller = loader.getController();
+            controller = loader.getController();
 
             return controller;
         } catch (Exception e) {
@@ -59,5 +64,11 @@ public class LeftPaneController implements Initializable {
         System.out.println("add");
         FormAddView formAddView = FormAddView.getInstance();
         formAddView.show(true);
+    }
+
+    public void addSubject(SubjectView subjectView) {
+        listView.getItems().add(subjectView.view());
+//        listView.setItems(listView.getItems());
+        listView.refresh();
     }
 }

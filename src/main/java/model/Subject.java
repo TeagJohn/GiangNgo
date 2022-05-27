@@ -32,6 +32,7 @@ public class Subject {
         this.numberOfPer = numberOfPer;
     }
 
+
     public Subject(String id, String name, int numberOfPer, Teacher teacher, List<Time> timeList) {
         this.id = id;
         this.name = name;

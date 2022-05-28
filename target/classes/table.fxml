@@ -123,12 +123,12 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tiết 9" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tiết 9" GridPane.halignment="CENTER" GridPane.rowIndex="9">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tiết 10" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tiết 10" GridPane.halignment="CENTER" GridPane.rowIndex="10">
                <font>
                   <Font size="20.0" />
                </font>

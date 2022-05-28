@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubjectController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" prefHeight="44.0" prefWidth="523.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubjectController">
    <children>
       <Text fx:id="sbname" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject name" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="11.0" />
       <Text fx:id="sbperiod" strokeType="OUTSIDE" strokeWidth="0.0" text="number periods" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="11.0" />
+      <Button fx:id="remove" mnemonicParsing="false" onAction="#removeSubject" text="Xóa" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="6.0" />
    </children>
 </AnchorPane>

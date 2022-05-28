@@ -2,6 +2,7 @@ package model;
 
 import View.SubjectView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class Subject {
 
     private Teacher teacher;
     private List<Time> timeList;
+    private Time time;
     private SubjectView view;
 
 
@@ -39,6 +41,22 @@ public class Subject {
         this.numberOfPer = numberOfPer;
         this.teacher = teacher;
         this.timeList = timeList;
+    }
+
+    public Subject(String id, String name, int numberOfPer, Teacher teacher, Time time) {
+        this.id = id;
+        this.name = name;
+        this.numberOfPer = numberOfPer;
+        this.teacher = teacher;
+        this.time = time;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 
     public String getName() {
@@ -74,12 +92,41 @@ public class Subject {
     }
 
     public boolean isConflict(Subject s) {
-        for (Time t1 : timeList) {
-            for (Time t2 : s.getTimeList()) {
-                if (t1.isConflict(t2)) return true;
-            }
+//        for (Time t1 : timeList) {
+//            for (Time t2 : s.getTimeList()) {
+//                if (t1.isConflict(t2)) return true;
+//            }
+//        }
+//        return false;
+
+        return time.isConflict(s.getTime());
+    }
+
+    public int getColInTable() {
+        Thu thu = time.getThu();
+        switch (thu) {
+            case Mon: return 1;
+            case Tue: return 2;
+            case Wed: return 3;
+            case Thu: return 4;
+            case Fri: return 5;
+            case Sat: return 6;
+            default: return 7;
         }
-        return false;
+    }
+
+    public List<Integer> getRowInTable() {
+        List<Integer> rows = new ArrayList<>();
+        for (int i = getTime().getStartPeriod(); i <= getTime().getEndPeriod(); i++) {
+            rows.add(i);
+        }
+        return rows;
+    }
+
+    public String getInfo() {
+        return id + " - " + name + "\n" +
+                numberOfPer + " Tín chỉ" + "\n" +
+                teacher.getName();
     }
 
     @Override
@@ -89,7 +136,8 @@ public class Subject {
                 ", name='" + name + '\'' +
                 ", numberOfPer=" + numberOfPer +
                 ", teacher=" + teacher +
-                ", timeList=" + timeList +
+                ", time=" + time +
+                ", view=" + view +
                 '}';
     }
 

@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import model.Thu?>
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormAddController">
    <children>
       <Label text="Mã môn học:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
@@ -22,9 +21,11 @@
       <Label text="Tên giảng viên:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="150.0" />
       <TextField fx:id="tfGVname" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="150.0" />
       <Label text="Tiết học bắt đầu:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="180.0" />
-      <TextField fx:id="tfTime" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="180.0" />
-      <Label layoutX="10.0" layoutY="10.0" text="Thứ:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="210.0" />
-      <ChoiceBox fx:id="cbThu" layoutX="150.0" layoutY="213.0" prefWidth="150.0">
+      <TextField fx:id="tfStart" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="180.0" />
+      <Label layoutX="10.0" layoutY="10.0" text="Tiết học kết thúc:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="210.0" />
+      <TextField fx:id="tfEnd" layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="210.0" />
+      <Label layoutX="30.0" layoutY="262.0" text="Thứ:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="240.0" />
+      <ChoiceBox fx:id="cbThu" layoutX="150.0" layoutY="272.0" prefWidth="150.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="240.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Thứ hai" />
@@ -37,6 +38,6 @@
             </FXCollections>
          </items>
       </ChoiceBox>
-      <Button fx:id="btAdd" alignment="CENTER" layoutX="252.0" layoutY="261.0" mnemonicParsing="false" onAction="#add" text="Thêm môn học" />
+      <Button fx:id="btAdd" alignment="CENTER" layoutX="252.0" layoutY="320.0" mnemonicParsing="false" onAction="#add" text="Thêm môn học" />
    </children>
 </AnchorPane>

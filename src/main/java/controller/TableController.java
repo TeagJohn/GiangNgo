@@ -1,10 +1,12 @@
 package controller;
 
+import View.LeftPaneView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -12,6 +14,7 @@ import javafx.scene.text.Text;
 import model.Subject;
 import model.Thu;
 import model.Time;
+import model.TimeTable;
 import utils.Utils;
 
 import java.net.URL;
@@ -27,9 +30,10 @@ public class TableController implements Initializable {
     private GridPane gridPane;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        Text t = new Text("Hello");
-//        gridPane.add(t, 1, 1, 1, 2);
-//        GridPane.setHalignment(t, Pos.CENTER.getHpos());
+        for (Subject subject : TimeTable.getInstance().getSubjectList()) {
+//            LeftPaneView.getController().addSubject(subject);
+            add(subject);
+        }
     }
 
     public AnchorPane getAnchorPane() {
@@ -55,13 +59,36 @@ public class TableController implements Initializable {
     }
 
     public void add(Subject subject) {
-        List<Time> timeList = subject.getTimeList();
-        for (Time time : timeList) {
-            int start = time.getStartPeriod();
-            int end = time.getEndPeriod();
-            Thu thu = time.getThu();
-            gridPane.getColumnConstraints().get(1);
-            Node node = Utils.getNodeFromGridPane(gridPane, getCol(thu), start);
+//        List<Time> timeList = subject.getTimeList();
+//        for (Time time : timeList) {
+//            int start = time.getStartPeriod();
+//            int end = time.getEndPeriod();
+//            Thu thu = time.getThu();
+//            gridPane.getColumnConstraints().get(1);
+//            Node node = Utils.getNodeFromGridPane(gridPane, getCol(thu), start);
+//        }
+        List<Integer> rows = subject.getRowInTable();
+        int col = subject.getColInTable();
+
+        for (int i : rows) {
+            TextArea textArea = (TextArea) Utils.getNodeFromGridPane(gridPane, col, i);
+            if (textArea == null) {
+                textArea = new TextArea();
+                textArea.setEditable(false);
+                gridPane.add(textArea, col, i);
+            }
+            textArea.setText(subject.getInfo());
+        }
+    }
+
+    public void removeSubject(Subject subject) {
+        int col = subject.getColInTable();
+        List<Integer> rows = subject.getRowInTable();
+        for (int i : rows) {
+            TextArea textArea = (TextArea) Utils.getNodeFromGridPane(gridPane, col, i);
+            if (textArea != null) {
+                textArea.clear();
+            }
         }
     }
 

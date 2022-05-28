@@ -6,7 +6,9 @@
 -- Generation Time: May 27, 2022 at 08:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
-
+CREATE DATABASE EMPDB
+USE EMPDB
+GO
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -27,70 +29,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `subject`
 --
 
-CREATE TABLE `subject` (
-  `subject_id` int(11) NOT NULL,
-  `subject_name` text NOT NULL,
-  `number_period` int(11) NOT NULL,
-  `teacher_id` int(11) NOT NULL,
-  `time_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `teacher`
---
-
-CREATE TABLE `teacher` (
-  `teacher_id` int(11) NOT NULL,
-  `teacher_name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `time`
---
-
-CREATE TABLE `time` (
-  `time_id` int(11) NOT NULL,
-  `thu` int(11) NOT NULL,
-  `start` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `subject`
---
-ALTER TABLE `subject`
-  ADD PRIMARY KEY (`subject_id`);
-
---
--- Indexes for table `teacher`
---
-ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`teacher_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `teacher`
---
-ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE subject (
+  subject_id nvarchar(20) primary key NOT NULL,
+  subject_name nvarchar(20) NOT NULL,
+  number_period int NOT NULL,
+  teacher_id nvarchar(20) NOT NULL,
+  time_id nvarchar(20) NOT NULL
+)
+DROP TABLE subject
+INSERT INTO subject VALUES('MH01',N'Toán',3,'GV01',N'Nhung')
+INSERT INTO subject VALUES('MH02',N'Toán',3,'GV01',N'Nhung')
+INSERT INTO subject VALUES('MH03',N'Toán',3,'GV01',N'Nhung')

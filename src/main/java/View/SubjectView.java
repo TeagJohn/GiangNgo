@@ -15,6 +15,7 @@ public class SubjectView extends AnchorPane {
 
     public SubjectView(Subject subject) {
         controller = SubjectController.getInstance();
+        controller.setView(this);
         setSubject(subject);
         subject.setView(this);
     }

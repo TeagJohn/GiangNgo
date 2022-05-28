@@ -1,17 +1,17 @@
 package controller;
 
 import View.FormAddView;
+import View.LeftPaneView;
 import View.SubjectView;
+import View.TableView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import model.Subject;
-import model.Teacher;
-import model.Thu;
-import model.Time;
+import model.*;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -30,7 +30,14 @@ public class LeftPaneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listView.getItems().add(SubjectController.getInstance().getAnchorPane());
+//        listView.getItems().add(SubjectController.getInstance().getAnchorPane());
+//        for (Subject subject : TimeTable.getInstance().getSubjectList()) {
+//            addSubject(subject);
+//        }
+        for (Subject subject : TimeTable.getInstance().getSubjectList()) {
+            addSubject(subject);
+//            TableView.getController().add(subject);
+        }
     }
 
     public ListView<SubjectView> getListView() {
@@ -71,5 +78,10 @@ public class LeftPaneController implements Initializable {
         listView.getItems().add(subjectView.view());
 //        listView.setItems(listView.getItems());
         listView.refresh();
+    }
+
+    public void removeSubjectView(SubjectView subjectView) {
+        listView.getItems().remove(subjectView.getController().getAnchorPane());
+
     }
 }
